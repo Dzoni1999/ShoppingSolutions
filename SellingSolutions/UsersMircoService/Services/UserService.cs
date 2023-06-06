@@ -233,12 +233,16 @@ namespace UsersMicroService.Services
             message.Body = body;
             message.BodyEncoding = Encoding.UTF8;
             message.IsBodyHtml = false;
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);   
-            client.EnableSsl = true;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(_email, _password);
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.Send(message);
+
+            using (SmtpClient client = new SmtpClient("smtp.gmail.com", 587))
+            {
+                client.Credentials = new NetworkCredential(_email, _password);
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                
+                client.Send(message);
+            }
         }
     }
 }
