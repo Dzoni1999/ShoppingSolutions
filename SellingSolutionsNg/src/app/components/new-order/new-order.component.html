@@ -1,0 +1,28 @@
+<div class="div1" *ngIf="products.length == 0;else notNull">
+    <h1>Currently there are no products.</h1>
+ </div>
+ 
+ <ng-template #notNull>
+     <div class="center">
+         <table>
+             <thead>
+                 <tr>
+                     <th>Name</th>
+                     <th>Ingredients</th>
+                     <th>Price</th>
+                     <th>Add to bucket</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr *ngFor="let item of products;let idx=index;">
+                     <td scope="row">{{item.name}}</td>
+                     <td scope="row">{{item.ingredients}}</td> 
+                     <td scope="row">{{item.price}} RSD</td>  
+                     <td scope="row">
+                        <button (click)="onValueChange(idx)">Add to cart</button>
+                     </td> 
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+ </ng-template>

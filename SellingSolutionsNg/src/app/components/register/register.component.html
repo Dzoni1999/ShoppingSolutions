@@ -1,0 +1,23 @@
+<div class="main-block" style="position: relative; top: 25px;">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="title">
+            <i class="fas fa-pencil-alt"></i> 
+            <h2>Sign Up</h2>
+        </div>
+        <div class="info">
+            <input class="fname" type="text" name="username" placeholder="User name" formControlName="username" id="username" required>
+            <input class="fname" type="text" name="firstname" placeholder="First name" formControlName="firstname" id="firstname" required>
+            <input class="lname" type="text" name="lastname" placeholder="Last name" formControlName="lastname" id="lastname" required>
+            <input type="email" name="email" placeholder="Email" formControlName="email" id="email" required>
+            <input type="password" name="password" placeholder="Password" formControlName="password" id="password" required>
+            <input type="password" name="passwordrepeat" placeholder="Repeat password" formControlName="passwordrepeat" id="passwordrepeat" required>
+            <input type="text" name="adress" placeholder="Adress" formControlName="adress" id="adress" required>
+            <input type="date" name="date" placeholder="MM/DD/YYYY" formControlName="date" id="date" required>
+            <select formControlName="role" id="role" required>
+                <option value="Customer">Customer</option>
+                <option value="Deliverer">Seller</option>
+            </select>
+        <button  class="button1" type="submit">Register</button>
+        </div>
+    </form>
+</div>

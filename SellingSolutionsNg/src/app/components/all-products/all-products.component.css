@@ -1,0 +1,196 @@
+.div1{
+  margin: auto;
+  width: 50%;
+  padding: 310px 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 100px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+}
+table {
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgb(231 236 122 / 70%);
+}
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: black;
+}
+
+select{
+padding: 15px;
+background-color: rgba(255, 255, 255, 0.2);
+color: black;
+}
+
+th {
+  text-align: left;
+}
+thead th {
+    background-color: rgba(189, 194, 89, 0.7); 
+}
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+.btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: #26a9e0;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+}
+
+.button1 {
+  margin: auto;
+  padding: 10px;
+  width: 250px;
+}
+
+button {
+  width: 100%;
+}
+button:hover, .btn-item:hover {
+  background: #85d6de;
+}
+.image{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+
+body, div, form, input, select, p { 
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  color: black;
+  }
+  h1, h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  }
+  h2 {
+  margin: 0 0 0 8px;
+  }
+  .main-block {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+  align-items: center;
+  height: 100%;
+  padding: 25px;
+  background: rgb(231 236 122 / 70%);
+  }
+  .left-part, form {
+  padding: 25px;
+  }
+  .left-part {
+  text-align: center;
+  }
+  .fa-graduation-cap {
+  font-size: 72px;
+  }
+  form {
+  background: rgb(231 236 122 / 70%); 
+  }
+  .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  }
+  .info {
+  display: flex;
+  flex-direction: column;
+  }
+  input, select {
+  padding: 5px;
+  margin-bottom: 30px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  }
+  input::placeholder {
+  color: black;
+  }
+  option:focus {
+  border: none;
+  }
+  option {
+  background: black; 
+  border: none;
+  }
+  .checkbox input {
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  }
+  .checkbox a {
+  color: #26a9e0;
+  }
+  .checkbox a:hover {
+  color: #85d6de;
+  }
+  .btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: #26a9e0;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  }
+  .button1 {
+  margin: auto;
+  padding: 10px;
+  width: 250px;}
+  .btn-item {
+  display: inline-block;
+  margin: 20px 5px 0;
+  }
+  button {
+  width: 100%;
+  }
+  button:hover, .btn-item:hover {
+  background: #85d6de;
+  }
+  .main-block {
+  flex-direction: row;
+  height: calc(100% - 50px);
+  }
+  .left-part, form {
+  flex: 1;
+  height: auto;
+  }

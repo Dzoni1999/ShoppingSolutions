@@ -1,0 +1,16 @@
+<div class="main-block" style="position: relative; top: 200px;">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="title">
+            <i class="fas fa-pencil-alt"></i> 
+            <h2>Sign In</h2>
+        </div>
+        <div class="info">
+            <input class="fname" type="text" name="username" formControlName="username" placeholder="User name" required>
+            <input type="password" name="password" formControlName="password" placeholder="Password" required>
+            <button style="position: relative; top:20px; right: 150px;" class="button1" type="submit">Log In</button>
+        </div>
+    </form>
+    <div class="info">
+        <button id="google" style="position: relative; left: 150px; bottom: 48px;" class="button2" (click)="loginWithGoogle()">Sign in with google</button>
+    </div>
+</div>

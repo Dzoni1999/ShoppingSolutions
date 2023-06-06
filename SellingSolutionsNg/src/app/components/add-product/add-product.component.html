@@ -1,0 +1,16 @@
+<div class="main-block" style="position: relative; top: 190px;">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="title">
+            <i class="fas fa-pencil-alt"></i> 
+            <h2>Add product</h2>
+        </div>
+        <div class="info">
+            <input class="fname" type="text" name="name" placeholder="Name" formControlName="name" required>
+            <input class="fname" type="text" name="ingredients" placeholder="Ingredients" formControlName="ingredients"required>
+            <input class="lname" type="number" name="price" placeholder="Price" formControlName="price" required>
+            <input class="lname" type="number" name="quantity" placeholder="Quantity" formControlName="quantity" required>
+            <input #chooseFile class="lname" type="file" accept="image/x-png,image/gif,image/jpeg" name="image" formControlName="image" (change)="onFileChosen($event);">
+        <button [disabled]="!productForm.valid" class="button1" type="submit">Add product</button>
+        </div>
+    </form>
+</div>

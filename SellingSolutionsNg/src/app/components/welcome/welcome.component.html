@@ -1,0 +1,8 @@
+<div *ngIf="!isUserLoggedIn();else loggedIn">
+    <h1>𝓑𝓮𝓵𝓬𝓸𝓶𝓮 𝓫𝓪𝓬𝓴!</h1>
+</div>
+<ng-template #loggedIn>
+    <div>
+        <h1 >𝓑𝓮𝓵𝓬𝓸𝓶𝓮 𝓫𝓪𝓬𝓴!</h1>
+    </div>
+</ng-template>

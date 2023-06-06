@@ -1,0 +1,74 @@
+<ng-container *ngIf="isGoogle();else second">
+    <div class="container">
+        <form [formGroup]="imageForm" (ngSubmit)="onSubmitImage()" class="form-image">
+            <div class="title">
+                <i class="fas fa-pencil-alt"></i> 
+                <h2>Change Picture</h2>
+            </div>
+            <div class="info">
+                <img class="image1" width="50%" [src]="imageURL" alt="profile image"/>
+                <input class="button1" formControlName="image" id="fileimg" type="file" (change)="onFileChange($event)">
+                <button class="button1" formControlName="image" id="file" type="file">Upload new image</button>
+            </div>
+        </form>
+        <form [formGroup]="confirmForm" (ngSubmit)="onSubmit()" class="form-info">
+            <div class="title">
+                <i class="fas fa-pencil-alt"></i> 
+                <h2>Change Profile</h2>
+            </div>
+            <div class="info">
+                <input class="fname" readonly="true" [value]="user?.username" placeholder="User name" id="username" required>
+                <input class="fname" [value]="user?.firstname" placeholder="First name" formControlName="firstname" id="firstname" required>
+                <input class="lname" type="text" value="{{user?.lastname}}" name="lastname" placeholder="Last name" formControlName="lastname" id="lastname" required>
+                <input type="email" readonly="true" value="{{user?.email}}" name="email" placeholder="Email" id="email">
+                <input class="fname"  placeholder="Adress"  formControlName="address" id="adress" required [value]="user?.address" >
+                <input class="fname" value="{{user?.birthDate}}" readonly="true" id="date">
+            <button  class="button1" type="submit">Confirm</button>
+            </div>
+        </form>
+    </div>
+</ng-container>
+<ng-template #second>
+    <div class="container1" style="position: relative; top: 100px;">
+        <form [formGroup]="imageForm" (ngSubmit)="onSubmitImage()">
+            <div class="title">
+                <i class="fas fa-pencil-alt"></i> 
+                <h2>Change Picture</h2>
+            </div>
+            <div class="info">
+                <img class="image1" width="50%" [src]="imageURL" alt="profile image"/>
+                <input class="button1" formControlName="image" id="fileimg" type="file" (change)="onFileChange($event)">
+                <button class="button1" formControlName="image" id="file" type="file">Upload new image</button>
+            </div>
+        </form>
+        <form [formGroup]="confirmForm" (ngSubmit)="onSubmit()">
+            <div class="title">
+                <i class="fas fa-pencil-alt"></i> 
+                <h2>Change Profile</h2>
+            </div>
+            <div class="info">
+                <input class="fname" readonly="true" [value]="user?.username" placeholder="User name" id="username" required>
+                <input class="fname" [value]="user?.firstname" placeholder="First name" formControlName="firstname" id="firstname" required>
+                <input class="lname" type="text" value="{{user?.lastname}}" name="lastname" placeholder="Last name" formControlName="lastname" id="lastname" required>
+                <input type="email" readonly="true" value="{{user?.email}}" name="email" placeholder="Email" id="email">
+                <input class="fname"  placeholder="Adress"  formControlName="address" id="adress" required [value]="user?.address" >
+                <input class="fname" value="{{user?.birthDate}}" readonly="true" id="date">
+            <button  class="button1" type="submit">Confirm</button>
+            </div>
+        </form>
+        <form [formGroup]="passwordForm" (ngSubmit)="onSubmitPassword()">
+            <div class="title">
+                <i class="fas fa-pencil-alt"></i> 
+                <h2>Change Password</h2>
+            </div>
+            <div class="info">
+                <input type="password" name="oldpassword" placeholder="Old password" formControlName="oldpassword" id="oldpassword" required>
+                <input type="password" name="newpassword" placeholder="New password" formControlName="newpassword" id="newpassword" required>
+                <input type="password" name="passwordrepeat" placeholder="Repeat new password" formControlName="passwordrepeat" id="passwordrepeat" required>
+                <button  class="button1" type="submit">Confirm</button>
+            </div>
+        </form>
+    </div>
+<ng-template>
+
+

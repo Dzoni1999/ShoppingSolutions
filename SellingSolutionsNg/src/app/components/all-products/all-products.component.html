@@ -1,0 +1,53 @@
+<div class="div1" *ngIf="allProducts.length == 0;else notNull">
+    <h1 style="color: black;">Added products will appear here.</h1>
+ </div>
+ 
+ <ng-template #notNull>
+     <div class="center" *ngIf="!isNew">
+         <table>
+             <thead>
+                 <tr>
+                     <th>Name</th>
+                     <th>Ingredients</th>
+                     <th>Price</th>
+                     <th>Quantity</th>
+                     <th>Image</th>
+                     <th>Edit</th>
+                     <th>Delete</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr *ngFor="let item of allProducts;">
+                     <td scope="row">{{item.name}}</td>
+                     <td scope="row">{{item.ingredients}}</td> 
+                     <td scope="row">{{item.price}} RSD</td>  
+                     <td scope="row">{{item.quantity}}</td>
+                     <img *ngIf="item.image" [src]="item.image" width="30px" height="30px" class="image">
+                     <img *ngIf="!item.image" [src]="item.image" [src]="'/assets/minion-shrug.jpg'" width="30px" height="30px" class="image">
+                     <td scope="row"><img src="assets/can-trash-svgrepo-com.svg" style="cursor: pointer" (click)="deleteProduct(item.id)"></td>
+                     <td scope="row"><img  width="30px" height="30px" src="assets/edit-1479-svgrepo-com.svg" style="cursor: pointer" (click)="editProduct(item.id)"></td>
+                    </tr>
+             </tbody>
+         </table>
+     </div>
+ </ng-template>
+
+ <div *ngIf="isNew" class="main-block" style="position: relative; top: 190px;">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="title">
+            <i class="fas fa-pencil-alt"></i> 
+            <h2>Add product</h2>
+        </div>
+        <div class="info">
+            <input class="fname" type="text" name="name" placeholder="Name" formControlName="name" required>
+            <input class="fname" type="text" name="ingredients" placeholder="Ingredients" formControlName="ingredients"required>
+            <input class="lname" type="number" name="price" placeholder="Price" formControlName="price" required>
+            <input class="lname" type="number" name="quantity" placeholder="Quantity" formControlName="quantity" required>
+            <input #chooseFile class="lname" type="file" accept="image/x-png,image/gif,image/jpeg" name="image" formControlName="image" (change)="onFileChosen($event);">
+            <td *ngIf="!image" scope="row"><img  width="100px" height="100px" src="{{product.image}}"></td>
+            <button [disabled]="!productForm.valid" class="button1" type="submit">Edit product</button>
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,82 @@
+<div class="solutions">
+    <img src="/assets/minions-header-1.png" width="50px" height="54px">
+    <span>𝓢𝓮𝓵𝓵𝓲𝓷𝓰 𝓢𝓸𝓵𝓾𝓽𝓲𝓸𝓷𝓼</span>
+    <img src="/assets/minions-header-2.png" width="50px" height="54px">
+</div>
+
+<ng-container *ngIf="!isUserLoggedIn();else loggedIn">
+    <ul >
+        <li>
+            <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/home" style="margin-left :5px">Home</a>
+        </li>
+        <div style="float: right;">
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/register" style="margin-left :5px">Register</a>
+            </li>
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/login" style="margin-left :5px">Login</a>
+            </li>
+        </div>
+    </ul>
+</ng-container>
+<ng-template #loggedIn>
+    <ul>
+        <li>
+            <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/home" style="margin-left :5px">Home</a>
+        </li>
+        <ng-container *ngIf="getRole() == 'ADMINISTARTOR';else second">
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/deliverers" style="margin-left :5px">Sellers</a>
+            </li>
+            
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/all-orders" style="margin-left :5px">All Orders</a>
+            </li>
+        </ng-container>
+        <ng-template #second>
+            <ng-container *ngIf="getRole() == 'CUSTOMER';else third">
+                <li>
+                    <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/current-delivery" style="margin-left :5px">Current Order</a>
+                </li>
+                <li>
+                    <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/new-order" style="margin-left :5px">Add to Cart</a>
+                </li>
+                <li>
+                    <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/cart" style="margin-left :5px">Cart</a>
+                </li>
+                <li>
+                    <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/history" style="margin-left :5px">Order History</a>
+                </li>
+            </ng-container>
+        </ng-template>
+        <ng-template #third>
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/current-order" style="margin-left :5px">Current Order</a>
+            </li>
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/pending-orders" style="margin-left :5px">Pending Orders</a>
+            </li>
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/add-product" style="margin-left :5px">Add Product</a>
+            </li>
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/all-products" style="margin-left :5px">All Products</a>
+            </li>
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/history-deliverer" style="margin-left :5px">Order History</a>
+            </li>
+        </ng-template>
+        <div style="float: right;">
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" routerLink="/profile" style="margin-left :5px">Profile</a>
+            </li>
+            <li>
+                <a class="btn btn-outline-light my-2 my-sm-0" type="btn" (click)="logout()" style="margin-left :5px">Logout</a>
+            </li>
+        </div>
+    </ul>
+</ng-template>
+
+
+
+

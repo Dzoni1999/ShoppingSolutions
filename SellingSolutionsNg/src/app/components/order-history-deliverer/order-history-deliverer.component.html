@@ -1,0 +1,48 @@
+<div class="div1" *ngIf="allOrders.length == 0;else notNull">
+    <h1>You have no delivered orders.</h1>
+ </div>
+ <ng-template #notNull>
+     <div>
+         <table style="position:relative; left: 260px;">
+             <thead>
+                 <tr>
+                     <th style="text-align: center;">#</th>
+                     <th style="text-align: center;">Orderer</th>
+                     <th style="text-align: center;">Address</th>
+                     <th style="text-align: center;">Comment</th>
+                     <th style="text-align: center;">Time of delivery</th>
+                     <th style="text-align: center;">Products ordered</th>
+                     <th style="text-align: center;">Total price</th>
+                 </tr>
+             </thead>
+             <tbody>
+                <tr *ngFor="let item of allOrders; let idx = index;">
+                    <td style="text-align: center;" scope="row">{{idx + 1}}</td>
+                    <td style="text-align: center;" style="text-align: center;" scope="row">{{item.userName}}</td> 
+                    <td style="text-align: center;" scope="row">{{item.address}}</td> 
+                    <td style="text-align: center;" scope="row">{{item.comment}}</td> 
+                    <td style="text-align: center;" scope="row">{{item.timeOfDelivery.toString().slice(0, 16)}}</td> 
+                    <td style="text-align: center;" scope="row">
+                        <div class="table table-bordered" style="margin-bottom:0;">
+                            <table>
+                                <tbody>
+                                    <tr *ngFor="let products of item.productOrders">
+                                        <td style="text-align: center;" scope="row">{{products.product.name}}</td>
+                                        <td style="text-align: center;" scope="row">{{products.product.ingredients}}</td>
+                                        <td style="text-align: center;" scope="row">{{products.product.price}} RSD</td>  
+                                        <td style="text-align: center;" scope="row">X{{products.quantity}}</td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                        </div>
+                    </td>
+                    <td style="text-align: center;" scope="row">{{item.totalPrice}} RSD</td>
+                </tr>
+             </tbody>
+         </table>
+     </div>
+ </ng-template>
+ 
+ 
+ 
+ 

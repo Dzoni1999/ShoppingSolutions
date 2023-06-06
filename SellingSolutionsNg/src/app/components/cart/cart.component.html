@@ -1,0 +1,58 @@
+<div class="div1" *ngIf="presentProducts.length == 0;else notNull">
+    <h1 class="h1">Added products will appear here.</h1>
+ </div>
+ 
+ <ng-template #notNull>
+    <div class="d-flex">
+        <div class="p-2 flex-fill">
+            <table style="position: relative; left: 150px;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Total</th>
+                        <th>Add</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of presentProducts;let idx=index;">
+                        <td scope="row">{{item.name}}</td>
+                        <td scope="row">{{item.price}} RSD</td>
+                        <td scope="row">{{item.amount}}x</td>
+                        <td scope="row">{{item.amount * item.price}} RSD</td>  
+                        <td scope="row">
+                            <button (click)="addOne(idx)"><img src="/assets/plus-frame-svgrepo-com.svg"></button>
+                        </td> 
+                        <td scope="row">
+                            <button (click)="removeOne(idx)"><img src="/assets/can-trash-svgrepo-com.svg"></button>
+                        </td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-3 flex-fill">
+            <div class="w-75 p-3">
+                <form [formGroup]="cartForm" style="position: relative; left: 160px; top: 150px;">
+                    <div class="title">
+                        <i class="fas fa-pencil-alt"></i> 
+                        <h2>Your total price will be: {{getTotalPrice() - 300}}+300 RSD</h2>
+                    </div>
+                    <div class="info">
+                        <input class="fname" type="text" name="address" placeholder="Address" formControlName="address" id="address" required>
+                        <input class="fname" type="text" name="address" placeholder="Comment" formControlName="comment" id="address" required>
+                        <div class="d-flex">
+                            <button (click)="onClick(1)" name="clearCart" id="clearCart"  class="button1" type="button">Clear cart</button>
+                            <button (click)="onClick(2)" name="confirmPurchase" id="confirmPurchase" class="button1" type="button">Confirm purchase</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+ </ng-template>
+ 
+ 
+ 
+ 

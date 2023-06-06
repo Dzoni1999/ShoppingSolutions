@@ -1,0 +1,39 @@
+<div *ngIf="deliverers.length == 0;else notNull">
+   <h1>No Deliveres</h1>
+</div>
+
+<ng-template #notNull>
+    <div class="center">
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Date of birth</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of deliverers;let idx=index;">
+                    <td scope="row">{{item.username}}</td>
+                    <td scope="row">{{item.firstname}}</td> 
+                    <td scope="row">{{item.lastname}}</td> 
+                    <td scope="row">{{item.birthDate.slice(0,10)}}</td> 
+                    <td scope="row">{{item.address}}</td>  
+                    <td scope="row">
+                        <select #status (change)="onValueChange(status.value, idx)" [value]='getStatus(idx)'>
+                            <option disabled value="Pending">Pending</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Accepted">Accepted</option>
+                        </select>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>
+
+
+

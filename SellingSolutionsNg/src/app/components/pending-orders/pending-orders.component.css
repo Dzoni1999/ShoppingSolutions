@@ -1,0 +1,85 @@
+.div1{
+  margin: auto;
+  width: 50%;
+  padding: 310px 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 100px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+}
+table {
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgb(231 236 122 / 70%);
+}
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: black;
+}
+
+select{
+padding: 15px;
+background-color: rgba(255, 255, 255, 0.2);
+color: black;
+}
+
+th {
+  text-align: left;
+}
+thead th {
+    background-color: rgb(231 236 122 / 70%); 
+}
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+.btn-item, button {
+  padding: 10px 5px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: #26a9e0;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+}
+
+.button1 {
+  margin: auto;
+  padding: 10px;
+  width: 250px;
+}
+
+button {
+  width: 100%;
+}
+button:hover, .btn-item:hover {
+  background: #85d6de;
+}
